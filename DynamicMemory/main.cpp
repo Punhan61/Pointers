@@ -44,7 +44,7 @@ template<typename T> T* pop_erase(T* arr, int& n,int index);
 template<typename T> T** erase_row(T** arr, int& rows, int cols, int index);
 
 //#define DYNAMIC_MEMORY_1
-//#define DYNAMIC_MEMORY_2_ROWS
+#define DYNAMIC_MEMORY_2_ROWS
 //#define DYNAMIC_MEMORY_3_COLS
 
 void main()
@@ -380,7 +380,7 @@ template<typename T>T** insert_row(T** arr, int& rows, int cols, int index)
 	{
 		/*if (i == index)buffer[i] = new int[cols] {};
 		else buffer[i] = arr[counter++];*/
-		i == index ? buffer[i] = new int[cols]{} : buffer[i] = arr[counter++];
+		i == index ? buffer[i] = new T[cols]{} : buffer[i] = arr[counter++];
 	}
 	delete[] arr;
 	arr = buffer;
