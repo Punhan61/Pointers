@@ -24,7 +24,7 @@ void push_col_front(int** arr, int rows, int& cols);
 
 int* insert(int* arr, int& n, int value, int index);
 int** insert_row(int** arr, int& rows, int cols, int index);
-//int** insert_col(int** arr, int rows, int& cols, int index);
+
 
 int* pop_back(int* arr, int& n);
 int** pop_row_back(int** arr, int& rows, int cols);
@@ -80,7 +80,7 @@ void main()
 	delete arr;
 #endif // DYNAMIC_MEMORY_1
 	
-	int rows, cols, index;
+	int rows, cols, index{};
 	cout << "Введите количество строк: "; cin >> rows;
 	cout << "Введите количество элементов строк: "; cin >> cols;
 	
@@ -330,23 +330,6 @@ int** insert_row(int** arr, int& rows, int cols, int index)
 	rows++;
 	return arr;
 }
-//int** insert_col(int** arr, int rows, int& cols, int index)
-//{
-//	for (int i = 0; i < rows; i++)
-//	{
-//		int* buffer = new int[cols + 1]{};
-//		for (int j = 0; j < cols+1; j++)
-//		{
-//			if (j == index)buffer[j];
-//			else buffer[j] = arr[i][j+1];
-//		}
-//		delete[]arr[i];
-//		arr[i] = buffer;
-//	    return arr;
-//	}
-//	cols++;
-//}
-
 
 int* pop_back(int* arr, int& n)
 {
@@ -423,10 +406,11 @@ void pop_col_front(int** arr,const int rows, int& cols)
 	for (int i = 0; i < rows; i++)
 	{
 		int* buffer = new int[cols-1]{};
-		for (int j = 0; j < cols; j++)
+		for (int j = 1; j < cols; j++)
 			buffer[j-1] = arr[i][j];
 		delete[] arr[i];
 		arr[i] = buffer;
+		
 	}
 	cols--;
 }
